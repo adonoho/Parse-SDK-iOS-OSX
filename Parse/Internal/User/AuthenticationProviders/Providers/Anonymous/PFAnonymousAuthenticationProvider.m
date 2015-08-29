@@ -21,10 +21,6 @@
     return @"anonymous";
 }
 
-- (BFTask *)authenticateAsync {
-    return [BFTask taskWithResult:self.authData];
-}
-
 - (BFTask *)deauthenticateAsync {
     return [BFTask taskWithResult:nil];
 }

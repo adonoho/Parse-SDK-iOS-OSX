@@ -36,20 +36,6 @@
     XCTAssertEqualObjects([PFAnonymousAuthenticationProvider authType], @"anonymous");
 }
 
-- (void)testAuthenticateAsync {
-    PFAnonymousAuthenticationProvider *provider = [[PFAnonymousAuthenticationProvider alloc] init];
-
-    XCTestExpectation *expectation = [self currentSelectorTestExpectation];
-    [[provider authenticateAsync] continueWithBlock:^id(BFTask *task) {
-        NSDictionary *authData = task.result;
-        XCTAssertNotNil(authData);
-        XCTAssertNotNil(authData[@"id"]);
-        [expectation fulfill];
-        return nil;
-    }];
-    [self waitForTestExpectations];
-}
-
 - (void)testDeauthenticateAsync {
     PFAnonymousAuthenticationProvider *provider = [[PFAnonymousAuthenticationProvider alloc] init];
 

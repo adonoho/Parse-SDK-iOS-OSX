@@ -15,6 +15,7 @@
 @interface PFAnonymousUtils (Private)
 
 + (PFAnonymousAuthenticationProvider *)_authenticationProvider;
++ (void)_clearAuthenticationProvider;
 
 + (PFUser *)_lazyLogIn;
 
