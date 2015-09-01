@@ -240,8 +240,11 @@ namespace :test do
       puts 'OS X Tests Failed!'
       exit(1)
     end
-    # Slather if running in Travis
-    `slather` if ENV['TRAVIS']
+    # Code coverage if running in Travis
+    if ENV['TRAVIS']
+      `slather`
+      `bash <(curl -s https://codecov.io/bash)`
+    end
   end
 
   desc 'Run Deployment Tests'
